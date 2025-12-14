@@ -23,7 +23,7 @@ public class Main
           System.out.println("6.Exit");
 
           System.out.println("Enter your Option(1,2,3,4,5,6) : ");
-          int Option = scan.nextInt();
+          String Option = scan.nextInt();
 
           switch (Option)
           {
