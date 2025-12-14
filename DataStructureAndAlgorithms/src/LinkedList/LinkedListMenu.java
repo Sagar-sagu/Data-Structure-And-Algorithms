@@ -1,13 +1,13 @@
 
-package LinkedLists;
+package src.LinkedList;
 
-import LinkedLists.singlyLinkedList.SinglyLinkedList;
+import src.LinkedList.singlyLinkedList.SinglyLinkedList;
 import java.util.Scanner;
 // import singlyLinkedList.*;
 
-public class LinkedListsMenu
+public class LinkedListMenu
 {
-    public static void LinkedListOperationsMethod()
+    public static void LinkedListOperations()
     {
       Scanner scan = new Scanner(System.in);
       running:
@@ -17,7 +17,7 @@ public class LinkedListsMenu
         System.out.println("1.SinglyLinkedList ( can Traverse only Forword )");
         System.out.println("2.DoublyLinkedList ( can Traverse Both Forword and Backword )");
         System.out.println("3.CircularLinkedList ( can Traverse only Forword Circularly)");
-        System.out.println("4.DoublyCircularLinkedList ( can Traverse Both Forword And Circularly)");
+        System.out.println("4.DoublyCircularLinkedList ( can Traverse Both Forword And Backword Circularly)");
         System.out.println("5.Back");
 
         System.out.println("Enter your Option(1,2,3,4,5) : ");

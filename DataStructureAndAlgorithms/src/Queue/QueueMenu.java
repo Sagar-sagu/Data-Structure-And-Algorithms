@@ -1,10 +1,10 @@
-package Queues;
+package src.Queue;
 
 import java.util.Scanner;
 
-public class QueuesMenu
+public class QueueMenu
 {
-    public static void QueuesOperationsMethod()
+    public static void QueueOperations()
     {
       Scanner scan = new Scanner(System.in);
     }

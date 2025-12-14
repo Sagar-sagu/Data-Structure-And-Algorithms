@@ -1,10 +1,10 @@
-package Algorithms;
+package src.Algorithms;
 
 import java.util.Scanner;
 
 public class AlgorithmsMenu
 {
-    public static void AlgorithmsOperationsMethod()
+    public static void AlgorithmsOperations()
     {
       Scanner scan = new Scanner(System.in);
     }

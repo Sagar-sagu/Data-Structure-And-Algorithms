@@ -1,8 +1,8 @@
-import Algorithms.AlgorithmsMenu;
-import Arrays.ArraysMenu;
-import LinkedLists.LinkedListsMenu;
-import Queues.QueuesMenu;
-import Stacks.StacksMenu;
+import src.Algorithms.AlgorithmsMenu;
+import src.Arrays.ArraysMenu;
+import src.LinkedList.LinkedListMenu;
+import src.Queue.QueueMenu;
+import src.Stack.StackMenu;
 import java.util.Scanner;
 
 public class Main
@@ -23,21 +23,21 @@ public class Main
           System.out.println("6.Exit");
 
           System.out.println("Enter your Option(1,2,3,4,5,6) : ");
-          String Option = scan.nextInt();
+          String Option = scan.nextLine();
 
           switch (Option)
           {
-             case 1:AlgorithmsMenu.AlgorithmsOperationsMethod();
+             case "1":AlgorithmsMenu.AlgorithmsOperations();
                  break;
-             case 2:ArraysMenu.ArraysOperationsMethod();
+             case "2":ArraysMenu.ArraysOperations();
                  break;
-             case 3:QueuesMenu.QueuesOperationsMethod();
+             case "3":QueueMenu.QueueOperations();
                  break;
-             case 4:StacksMenu.StacksOperationsMethod();
+             case "4":StackMenu.StackOperations();
                  break;
-             case 5:LinkedListsMenu.LinkedListOperationsMethod();
+             case "5":LinkedListMenu.LinkedListOperations();
                  break;
-             case 6:System.out.println("Exiting........");
+             case "6":System.out.println("Exiting........");
                    System.exit(0);
              default:System.out.println("Invalid choice. Please try again.");
                  break;
