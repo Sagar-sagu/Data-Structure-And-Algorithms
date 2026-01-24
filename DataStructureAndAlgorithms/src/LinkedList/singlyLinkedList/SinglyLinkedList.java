@@ -2,7 +2,7 @@ package src.LinkedList.singlyLinkedList;
 
 public class SinglyLinkedList
 {
-  TemplateOfCreateNode head;
+  NodeStructure head;
 
   public SinglyLinkedList()
   {
@@ -10,7 +10,7 @@ public class SinglyLinkedList
   }
   public  void InsertAtBegining(int data)
   {
-    TemplateOfCreateNode newNode = new TemplateOfCreateNode(data);
+    NodeStructure newNode = new NodeStructure(data);
     newNode.next = this.head;
     this.head = newNode;
   }
@@ -23,27 +23,22 @@ public class SinglyLinkedList
       return;
     }
 
-    TemplateOfCreateNode tempVar = this.head;
+    NodeStructure tempVar = this.head;
     while (tempVar != null)
     {
-      System.out.print("  " + tempVar + "--->");
+      System.out.print(" " + tempVar.data + "->");
       tempVar = tempVar.next;
     }
+    System.out.println("null");
   }
 
   public  void test()
   {
-    int data=1;
-    int data1=2;
-    int data2=3;
-    int data3=4;
-    int data4=5;
-
-    this.InsertAtBegining(data);
-    this.InsertAtBegining(data1);
-    this.InsertAtBegining(data2);
-    this.InsertAtBegining(data3);
-    this.InsertAtBegining(data4);
+    this.InsertAtBegining(1);
+    this.InsertAtBegining(2);
+    this.InsertAtBegining(3);
+    this.InsertAtBegining(4);
+    this.InsertAtBegining(5);
 
     DisplayNodes();
   }

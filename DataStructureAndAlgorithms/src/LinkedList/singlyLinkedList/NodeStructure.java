@@ -1,11 +1,11 @@
 package src.LinkedList.singlyLinkedList;
 
-public class TemplateOfCreateNode
+public class NodeStructure
 {
   int data;
-  TemplateOfCreateNode next;
+  NodeStructure next;
 
-  public TemplateOfCreateNode(int data)
+  public NodeStructure(int data)
   {
     this.data = data;
     this.next = null;
