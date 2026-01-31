@@ -41,23 +41,19 @@ public class Stack{
       System.out.println("");
       if ((IntegerLength != 0) || (StringLength != 0)) {
         if (usrGaveType == 1) {
-          boolean IsEmpty = false;
           if (IntegerTop == -1) {
-            IsEmpty = true;
-            System.out.println("Stack is Empty? " + IsEmpty);
+            System.out.println("Stack is Empty? True");
           }
           else {
-            System.out.println("Stack is Empty? " + IsEmpty);
+            System.out.println("Stack is Empty? False");
           }
         }
         else if (usrGaveType == 2) {
-          boolean IsEmpty = false;
           if (StringTop == -1) {
-            IsEmpty = true;
-            System.out.println("Stack is Empty? " + IsEmpty);
+            System.out.println("Stack is Empty? True");
           }
           else {
-            System.out.println("Stack is Empty? " + IsEmpty);
+            System.out.println("Stack is Empty? False");
           }
         }
       }
@@ -81,7 +77,7 @@ public class Stack{
             IntegerStack[++IntegerTop] = IntegerStackElements;
           }
           else {
-            System.out.println("Stack Size  is OverFlow ");
+            System.out.println("Stack Size  is OverFlow so, For Not To Take Elements ");
           }
         }
         else if (usrGaveType == 2) {
@@ -109,12 +105,22 @@ public class Stack{
       System.out.println("");
       if ((IntegerLength != 0) || (StringLength != 0)) {
         if (usrGaveType == 1) {
-          System.out.println("Poping element is " + IntegerStack[IntegerTop]);
-          IntegerTop--;
+          if (IntegerTop == -1) {
+            System.out.println("Stack is Empty");
+          }
+          else {
+            System.out.println("Poping element is " + IntegerStack[IntegerTop]);
+            IntegerTop--;
+          }
         }
         else if (usrGaveType == 2) {
-          System.out.println("Poping element is " + StringStack[StringTop]);
-          StringTop--;
+          if (StringTop == -1) {
+            System.out.println("Stack is Empty");
+          }
+          else {
+            System.out.println("Poping element is " + StringStack[StringTop]);      
+            StringTop--;
+          }
         }
       }
       else {
@@ -157,30 +163,38 @@ public class Stack{
       System.out.println("");
       if ((IntegerLength != 0) || (StringLength != 0)) {
         if (usrGaveType == 1) {
-          System.out.println("Enter Search element");
-          int usrSearchElement = scan.nextInt();
-          for (int i=0;i<IntegerLength;i++ ) {
-            if (IntegerStack[i] == usrSearchElement) {
-              System.out.println("True");
-              break;
-            }
-            else {
-              System.out.println("false");
-              break;
+          if (IntegerTop == -1) {
+            System.out.println("Stack is Empty");
+          }
+          else {
+            System.out.println("Enter Search element");
+            int usrSearchElement = scan.nextInt();
+            for (int i=0;i<=IntegerLength-1;i++ ) {
+              if (IntegerStack[i] == usrSearchElement) {
+                System.out.println("is There? True");
+                break;
+              }
+              else if (IntegerLength-1 == i) {
+            	  System.out.println("is There? False");
+              }
             }
           }
         }
         else if (usrGaveType == 2) {
-          System.out.println("Enter Search element");
-          String usrSearchElement = scan.nextLine();
-          for (int i=0;i<StringLength;i++ ) {
-            if (StringStack[i] == usrSearchElement) {
-              System.out.println("True");
-              break;
-            }
-            else {
-              System.out.println("false");
-              break;
+          if (StringTop == -1) {
+            System.out.println("Stack is Empty");
+          }
+          else {
+            System.out.println("Enter Search element");
+            String usrSearchElement = scan.nextLine();
+            for (int i=0;i<=StringLength-1;i++ ) {
+              if (StringStack[i].equals(usrSearchElement)) {
+                System.out.println("is There? True");
+                break;
+              }
+              else if (StringLength-1 == i) {
+            	  System.out.println("is There? False");
+              }
             }
           }
         }
@@ -219,13 +233,29 @@ public class Stack{
     try {
       if ((IntegerLength != 0) || (StringLength != 0)) {
         if (usrGaveType == 1) {
-          for (int i=IntegerLength;i>=0;i-- ) {
-            System.out.println(IntegerStack[i]);
+          if (IntegerTop == -1) {
+            System.out.println("Stack is Empty");
+          }
+          else {
+        	  System.out.println("Stack Elements are:-");
+            for (int i=IntegerTop;i>=0 && i<=IntegerLength-1;i-- ) {            
+              System.out.println(" ----");
+              System.out.println("| " + IntegerStack[i] + " |");
+            }
+            System.out.println(" ----");
           }
         }
         else if (usrGaveType == 2) {
-          for (int i=StringLength;i>=0;i-- ) {
-            System.out.println(StringStack[i]);
+          if (StringTop == -1) {
+            System.out.println("Stack is Empty");
+          }
+          else {
+        	  System.out.println("Stack Elements are:-");
+            for (int i=StringTop;i>=0 && i<=StringLength-1;i-- ) {
+              System.out.println(" ----");
+              System.out.println("| " + StringStack[i] + " |");
+            }
+            System.out.println(" ----");
           }
         }
       }
