@@ -1,12 +1,13 @@
 package src.Stack;
 
 import java.util.Scanner;
+import src.Stack.StackWithArray.Stack;
 
 public class StackMenu
 {
-  public static void StackOperations()
-  {
-    Scanner scan = new Scanner(System.in);
+  Scanner scan = new Scanner(System.in);
+
+  static void StackWithArray(){
     running:
     while (true) {
       System.out.println("");
@@ -18,8 +19,10 @@ public class StackMenu
       System.out.println("6.View (Show All Elements in Stack)");
       System.out.println("7.Search (check wheather Searching element is there in stack or not)");
       System.out.println("8.Size (it returns size of stack)");
-      System.out.println("9.Goe's Back");
-      System.out.println("10.Exit");
+      System.out.println("9.Capacity (it returns Capacity of Stack)");
+      System.out.println("10.Remaing Slots (it returns Remaing index of Capacity)");
+      System.out.println("11.Goe's Back");
+      System.out.println("12.Exit");
 
       System.out.println("Enter your Option(1,2,3,4,5,6,7,8,9,10) : ");
       String Option = scan.nextLine();
@@ -42,9 +45,42 @@ public class StackMenu
            break;
        case "8":Stack.Size();
            break;
-       case "9":System.out.println("your are going Back");;
+       case "9":Stack.Capacity();
+           break;
+       case "10":Stack.RemainSlots();
+           break;
+       case "11":System.out.println("your are going Back");;
            break running;
-       case "10":System.out.println("Exiting........");
+       case "12":System.out.println("Exiting........");
+             System.exit(0);
+       default:System.out.println("Invalid choice. Please try again.");
+           break;
+      }
+    }
+  }
+
+  public static void StackOperations()
+  {
+    running:
+    while (true) {
+      System.out.println("");
+      System.out.println("1.StackWithArray (Size is Fixed)");
+      System.out.println("2.StackWithLinkedList (Size is dynamic)");
+      System.out.println("3.Go's Back");
+      System.out.println("4.Exit");
+
+      System.out.println("Enter your Option(1,2,3,4) : ");
+      String Option = scan.nextLine();
+
+      switch (Option)
+      {
+       case "1":StackWithArray();
+           break;
+       case "2":System.out.println("Comming Soon");;
+           break;
+       case "3":System.out.println("your are going Back");;
+           break running;
+       case "4":System.out.println("Exiting........");
              System.exit(0);
        default:System.out.println("Invalid choice. Please try again.");
            break;

@@ -1,4 +1,4 @@
-package src.Stack;
+package src.Stack.StackWithArray;
 
 import java.util.Scanner;
 
@@ -118,7 +118,7 @@ public class Stack{
             System.out.println("Stack is Empty");
           }
           else {
-            System.out.println("Poping element is " + StringStack[StringTop]);      
+            System.out.println("Poping element is " + StringStack[StringTop]);
             StringTop--;
           }
         }
@@ -213,10 +213,20 @@ public class Stack{
       System.out.println("");
       if ((IntegerLength != 0) || (StringLength != 0)) {
         if (usrGaveType == 1) {
-          System.out.println("Stack Size is " + IntegerLength);
+          if (IntegerTop != -1) {
+            int TempVar = IntegerTop;
+            System.out.println("Stack Size is " + ++TempVar);
+            return;
+          }
+          System.out.println("Stack is Empty");
         }
         else if (usrGaveType == 2) {
-          System.out.println("Stack Size is " + StringLength);
+          if (IntegerTop != -1) {
+            int TempVar = StringTop;
+            System.out.println("Stack Size is " + ++TempVar);
+            return;
+          }
+          System.out.println("Stack is Empty");
         }
       }
       else {
@@ -238,7 +248,7 @@ public class Stack{
           }
           else {
         	  System.out.println("Stack Elements are:-");
-            for (int i=IntegerTop;i>=0 && i<=IntegerLength-1;i-- ) {            
+            for (int i=IntegerTop;i>=0 && i<=IntegerLength-1;i-- ) {
               System.out.println(" ----");
               System.out.println("| " + IntegerStack[i] + " |");
             }
@@ -265,6 +275,53 @@ public class Stack{
     } catch(Exception e) {
       System.out.println("");
     }
+  }
 
+  public static void Capacity(){
+    try {
+      System.out.println("");
+      if ((IntegerLength != 0) || (StringLength != 0)) {
+        if (usrGaveType == 1) {
+          System.out.println("Stack Capacity is " + IntegerLength);
+          return;
+        }
+        else if (usrGaveType == 2) {
+          System.out.println("Stack Capacity is " + StringLength);
+          return;
+        }
+      }
+      else {
+        System.out.println("First You Create Stack");
+      }
+    } catch(Exception e) {
+      System.out.println("");
+    }
+  }
+
+  public static void RemainSlots(){
+    try {
+      System.out.println("");
+      if ((IntegerLength != 0) || (StringLength != 0)) {
+        if (usrGaveType == 1) {
+          if (IntegerTop != -1) {
+            System.out.println("Remaining Slots is " + ((IntegerLength-1)-IntegerTop));
+            return;
+          }
+          System.out.println("Stack is Empty");
+        }
+        else if (usrGaveType == 2) {
+          if (IntegerTop != -1) {
+            System.out.println("Remaining Slots is " + ((StringLength-1)-StringTop));
+            return;
+          }
+          System.out.println("Stack is Empty");
+        }
+      }
+      else {
+        System.out.println("First You Create Stack");
+      }
+    } catch(Exception e) {
+      System.out.println("");
+    }
   }
 }
