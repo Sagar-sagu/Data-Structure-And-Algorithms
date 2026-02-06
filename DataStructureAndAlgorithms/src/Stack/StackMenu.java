@@ -64,8 +64,8 @@ public class StackMenu
     running:
     while (true) {
       System.out.println("");
-      System.out.println("1.StackWithArray (Size is Fixed)");
-      System.out.println("2.StackWithLinkedList (Size is dynamic)");
+      System.out.println("1.Stack With Array (Size is Fixed)");
+      System.out.println("2.Stack With LinkedList (Size is dynamic)");
       System.out.println("3.Go's Back");
       System.out.println("4.Exit");
 
