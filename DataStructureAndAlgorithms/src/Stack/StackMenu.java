@@ -5,9 +5,8 @@ import src.Stack.StackWithArray.Stack;
 
 public class StackMenu
 {
-  Scanner scan = new Scanner(System.in);
-
   static void StackWithArray(){
+    Scanner scan = new Scanner(System.in);
     running:
     while (true) {
       System.out.println("");
@@ -18,7 +17,7 @@ public class StackMenu
       System.out.println("5.Peek (it returns top of the stack element)");
       System.out.println("6.View (Show All Elements in Stack)");
       System.out.println("7.Search (check wheather Searching element is there in stack or not)");
-      System.out.println("8.Size (it returns size of stack)");
+      System.out.println("8.Size (it returns the number of elements in the Stack)");
       System.out.println("9.Capacity (it returns Capacity of Stack)");
       System.out.println("10.Remaing Slots (it returns Remaing index of Capacity)");
       System.out.println("11.Goe's Back");
@@ -61,6 +60,7 @@ public class StackMenu
 
   public static void StackOperations()
   {
+    Scanner scan = new Scanner(System.in);
     running:
     while (true) {
       System.out.println("");
