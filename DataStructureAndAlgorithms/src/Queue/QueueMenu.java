@@ -63,7 +63,7 @@ public class QueueMenu{
     running:
     while (true) {
       System.out.println("");
-      System.out.println("1.Queue With Array (Size is Fixed)");
+      System.out.println("1.Circular Queue With Array (Size is Fixed)");
       System.out.println("2.Queue With LinkedList (Size is dynamic)");
       System.out.println("3.Go's Back");
       System.out.println("4.Exit");

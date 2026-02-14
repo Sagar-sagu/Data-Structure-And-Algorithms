@@ -87,7 +87,7 @@ public class Stack{
             StringStack[++StringTop] = StringStackElements;
           }
           else {
-            System.out.println("Stack Size  is OverFlow ");
+            System.out.println("Capacity of Stack Size is OverFlow ");
           }
         }
       }
