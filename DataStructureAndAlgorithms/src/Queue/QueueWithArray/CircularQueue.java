@@ -2,7 +2,7 @@ package src.Queue.QueueWithArray;
 
 import java.util.Scanner;
 
-public class Queue{
+public class CircularQueue{
   static Scanner scan = new Scanner(System.in);
   static int IntegerLength;
   static int StringLength;
@@ -94,12 +94,17 @@ public class Queue{
         else if (usrGaveType == 2) {
           System.out.println("Enter String element");
           String StringQueueElements = scan.nextLine();
-          if (StringRear<StringLength-1) {
-            StringQueue[(StringFront+StringRear) % StringLength] = StringQueueElements;
-            StringRear++;
+          if (StringFront == ((StringRear+1)%StringLength)){
+            System.out.println("Capacity of Queue Size is OverFlow");
           }
-          else {
-            System.out.println("Queue Size  is OverFlow ");
+          else if (StringFront == -1 && StringRear == -1) {
+            StringRear++;
+            StringFront++;
+            StringQueue[StringRear] = StringQueueElements;
+          }
+          else{
+            StringRear = (StringRear+1)%StringLength;
+            StringQueue[StringRear] = StringQueueElements;
           }
         }
       }
@@ -130,12 +135,16 @@ public class Queue{
           }
         }
         else if (usrGaveType == 2) {
-          if (StringRear == -1) {
+          if (StringRear == -1 && StringFront == -1) {
             System.out.println("Queue is Empty");
+          }
+          else if(StringRear == StringFront){
+            System.out.println("DeQueue element is " + StringQueue[StringFront]);
+            StringFront=StringRear=-1;
           }
           else {
             System.out.println("DeQueue element is " + StringQueue[StringFront]);
-            StringFront++;
+            StringFront = (StringFront+1)%StringLength;
           }
         }
       }
@@ -174,85 +183,7 @@ public class Queue{
     }
   }
 
-  public static void Search(){
-    try{
-      System.out.println("");
-      if ((IntegerLength != 0) || (StringLength != 0)) {
-        if (usrGaveType == 1) {
-          if (IntegerRear == -1 && IntegerFront == -1) {
-            System.out.println("Queue is Empty");
-          }
-          else {
-            System.out.println("Enter Search element");
-            int usrSearchElement = scan.nextInt();
-            for (int i=IntegerFront;i<=IntegerRear;i++ ) {
-              if (IntegerQueue[i] == usrSearchElement) {
-                System.out.println("is There? True");
-                break;
-              }
-              else if (IntegerRear == i) {
-            	  System.out.println("is There? False");
-              }
-            }
-          }
-        }
-        else if (usrGaveType == 2) {
-          if (StringRear == -1) {
-            System.out.println("Queue is Empty");
-          }
-          else {
-            System.out.println("Enter Search element");
-            String usrSearchElement = scan.nextLine();
-            for (int i=0;i<=StringLength-1;i++ ) {
-              if (StringQueue[i].equals(usrSearchElement)) {
-                System.out.println("is There? True");
-                break;
-              }
-              else if (StringLength-1 == i) {
-            	  System.out.println("is There? False");
-              }
-            }
-          }
-        }
-      }
-      else {
-        System.out.println("First You Create Queue");
-      }
-    }
-    catch (Exception e) {
-      System.out.println("");
-    }
-  }
 
-  public static void Size(){
-    try {
-      System.out.println("");
-      if ((IntegerLength != 0) || (StringLength != 0)) {
-        if (usrGaveType == 1) {
-          if (IntegerRear != -1 && IntegerFront != -1) {
-            int TempVar = IntegerRear-1;
-            System.out.println("Queue Size is " + TempVar);
-            return;
-          }
-          System.out.println("Queue is Empty");
-        }
-        else if (usrGaveType == 2) {
-          if (IntegerRear != -1) {
-            int TempVar = StringRear;
-            System.out.println("Queue Size is " + ++TempVar);
-            return;
-          }
-          System.out.println("Queue is Empty");
-        }
-      }
-      else {
-        System.out.println("First You Create Queue");
-      }
-    }
-    catch (Exception e) {
-      System.out.println("");
-    }
-  }
 
   public static void ViewElements(){
     System.out.println("");
@@ -264,12 +195,11 @@ public class Queue{
           }
           else {
         	  System.out.println("Queue Elements are:-");
-            System.out.println(" ---- ".repeat(IntegerLength));
             for (int i=IntegerFront;i!=IntegerRear;i=(i+1)%IntegerLength ) {
               System.out.print("| " + IntegerQueue[i] + " |");
             }
             System.out.print("| " + IntegerQueue[IntegerRear] + " |");
-            System.out.println(" ---- ".repeat(IntegerLength));
+            System.out.println("");
           }
         }
         else if (usrGaveType == 2) {
@@ -278,11 +208,11 @@ public class Queue{
           }
           else {
         	  System.out.println("Queue Elements are:-");
-            System.out.println(" -------------------------");
-            for (int i=0;i<=StringLength-1;i++ ) {
+            for (int i=StringFront;i!=StringRear;i=(i+1)%StringLength ) {
               System.out.print("| " + StringQueue[i] + " |");
             }
-            System.out.println(" -------------------------");
+            System.out.print("| " + StringQueue[StringRear] + " |");
+            System.out.println("");
           }
         }
       }
@@ -305,33 +235,6 @@ public class Queue{
         else if (usrGaveType == 2) {
           System.out.println("Queue Capacity is " + StringLength);
           return;
-        }
-      }
-      else {
-        System.out.println("First You Create Queue");
-      }
-    } catch(Exception e) {
-      System.out.println("");
-    }
-  }
-
-  public static void RemainSlots(){
-    try {
-      System.out.println("");
-      if ((IntegerLength != 0) || (StringLength != 0)) {
-        if (usrGaveType == 1) {
-          if (IntegerRear != -1 && IntegerFront != -1) {
-            System.out.println("Remaining Slots is " + ((IntegerLength-1)-IntegerRear));
-            return;
-          }
-          System.out.println("Queue is Empty");
-        }
-        else if (usrGaveType == 2) {
-          if (IntegerRear != -1) {
-            System.out.println("Remaining Slots is " + ((StringLength-1)-StringRear));
-            return;
-          }
-          System.out.println("Queue is Empty");
         }
       }
       else {
