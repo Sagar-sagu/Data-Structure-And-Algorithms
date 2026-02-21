@@ -79,7 +79,7 @@ public class LinearQueue{
           IntegerFront++;
           IntegerRear++;
           }
-          if(IntegerRear<IntegerLength-1) {
+          if(IntegerRear<=IntegerLength-1) {
             IntegerQueue[IntegerRear] = IntegerQueueElements;
             IntegerRear++;
           }
@@ -323,7 +323,7 @@ public class LinearQueue{
       if ((IntegerLength != 0) || (StringLength != 0)) {
         if (usrGaveType == 1) {
           if (IntegerFront != -1 && IntegerRear != -1) {
-            System.out.println("Remaining Slots is " + (-((IntegerFront+1)-(IntegerRear+1))));
+            System.out.println("Remaining Slots is " + (-((IntegerFront+1)-IntegerRear)));
             return;
           }
           System.out.println("Queue is Empty");
