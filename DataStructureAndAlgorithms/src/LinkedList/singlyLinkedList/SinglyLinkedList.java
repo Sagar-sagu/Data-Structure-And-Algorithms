@@ -2,31 +2,53 @@ package src.LinkedList.singlyLinkedList;
 
 public class SinglyLinkedList
 {
-  NodeStructure head;
+  static class NodeStructure
+  {
+    int IntData;
+    NodeStructure nextInt;
+    String  StringData;
+    NodeStructure nextString;
+
+    public NodeStructure(int IntData)
+    {
+      this.IntData = IntData;
+      nextInt = null;
+    }
+
+    public NodeStructure(String StringData)
+    {
+      this.StringData = StringData;
+      nextString = null;
+    }
+  }
+
+  NodeStructure IntHead;
+  NodeStructure StringHead;
 
   public SinglyLinkedList()
   {
-    this.head = null;
+    IntHead = null;
+    StringHead = null;
   }
   public  void InsertAtBegining(int data)
   {
     NodeStructure newNode = new NodeStructure(data);
-    newNode.next = this.head;
-    this.head = newNode;
+    newNode.next = head;
+    head = newNode;
   }
 
   public  void DisplayNodes()
   {
-    if (this.head == null)
+    if (head == null)
     {
       System.out.println("Not Yet Insert Any Node");
       return;
     }
 
-    NodeStructure tempVar = this.head;
+    NodeStructure tempVar = head;
     while (tempVar != null)
     {
-      System.out.print(" " + tempVar.data + "->");
+      System.out.print("|" + tempVar.data + "|" + "->");
       tempVar = tempVar.next;
     }
     System.out.println("null");
@@ -34,11 +56,11 @@ public class SinglyLinkedList
 
   public  void test()
   {
-    this.InsertAtBegining(1);
-    this.InsertAtBegining(2);
-    this.InsertAtBegining(3);
-    this.InsertAtBegining(4);
-    this.InsertAtBegining(5);
+    InsertAtBegining(1);
+    InsertAtBegining(2);
+    InsertAtBegining(3);
+    InsertAtBegining(4);
+    InsertAtBegining(5);
 
     DisplayNodes();
   }

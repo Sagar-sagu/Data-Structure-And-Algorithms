@@ -8,6 +8,6 @@ public class NodeStructure
   public NodeStructure(int data)
   {
     this.data = data;
-    this.next = null;
+    next = null;
   }
 }

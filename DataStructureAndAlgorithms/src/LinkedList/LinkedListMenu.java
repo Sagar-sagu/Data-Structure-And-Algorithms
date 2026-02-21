@@ -14,10 +14,10 @@ public class LinkedListMenu
       while (true)
       {
         System.out.println("");
-        System.out.println("1.SinglyLinkedList ( can Traverse only Forword )");
-        System.out.println("2.DoublyLinkedList ( can Traverse Both Forword and Backword )");
-        System.out.println("3.CircularLinkedList ( can Traverse only Forword Circularly)");
-        System.out.println("4.DoublyCircularLinkedList ( can Traverse Both Forword And Backword Circularly)");
+        System.out.println("1.SinglyLinkedList ( it can Traverse only Forword )");
+        System.out.println("2.DoublyLinkedList ( it can Traverse Both Forword and Backword )");
+        System.out.println("3.CircularLinkedList ( it can Traverse only Forword Circularly)");
+        System.out.println("4.DoublyCircularLinkedList ( it can Traverse Both Forword And Backword Circularly)");
         System.out.println("5.Back");
 
         System.out.println("Enter your Option(1,2,3,4,5) : ");
@@ -25,15 +25,21 @@ public class LinkedListMenu
 
         switch (Option)
          {
-             case 1:SinglyLinkedList obj = new SinglyLinkedList();
-                    obj.test();
-                    // SinglyLinkedList.DisplayNodes();
-                 break;
-             case 5:System.out.println("you are going back.....");
-                   System.out.println("");
-                  break running;
-             default:System.out.println("Invalid choice. Please try again.");
-                 break;
+           case 1:SinglyLinkedList obj = new SinglyLinkedList();
+                  obj.test();
+                  // SinglyLinkedList.DisplayNodes();
+               break;
+           case 2:System.out.println("comming soon");
+               break;
+           case 3:System.out.println("comming soon");
+               break;
+           case 4:System.out.println("comming soon");
+               break;
+           case 5:System.out.println("you are going back.....");
+                 System.out.println("");
+                break running;
+           default:System.out.println("Invalid choice. Please try again.");
+               break;
         }
       }
     }
