@@ -7,5 +7,6 @@ public class ArraysMenu
     public static void ArraysOperations()
     {
       Scanner scan = new Scanner(System.in);
+      System.out.println("comming soon");
     }
 }

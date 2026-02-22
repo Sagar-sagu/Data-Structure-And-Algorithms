@@ -31,11 +31,11 @@ public class Main
                  break;
              case "2":ArraysMenu.ArraysOperations();
                  break;
-             case "3":QueueMenu.QueueOperations();
+             case "3":QueueMenu.QueueTypes();
                  break;
-             case "4":StackMenu.StackOperations();
+             case "4":StackMenu.StackImplementTypes();
                  break;
-             case "5":LinkedListMenu.LinkedListOperations();
+             case "5":LinkedListMenu.LinkedListTypes();
                  break;
              case "6":System.out.println("Exiting........");
                    System.exit(0);

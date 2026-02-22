@@ -5,7 +5,7 @@ import src.Stack.StackWithArray.Stack;
 
 public class StackMenu
 {
-  static void StackWithArray(){
+  static void StackWithArrayOperations(){
     Scanner scan = new Scanner(System.in);
     running:
     while (true) {
@@ -58,7 +58,7 @@ public class StackMenu
     }
   }
 
-  public static void StackOperations()
+  public static void StackImplementTypes()
   {
     Scanner scan = new Scanner(System.in);
     running:
@@ -74,7 +74,7 @@ public class StackMenu
 
       switch (Option)
       {
-       case "1":StackWithArray();
+       case "1":StackWithArrayOperations();
            break;
        case "2":System.out.println("Comming Soon");;
            break;

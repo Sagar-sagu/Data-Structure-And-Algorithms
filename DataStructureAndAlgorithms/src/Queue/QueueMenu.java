@@ -6,7 +6,7 @@ import src.Queue.QueueWithArray.*;
 public class QueueMenu{
   static Scanner scan = new Scanner(System.in);
 
-  static void LinearQueue(){
+  static void LinearQueueOperations(){
     running:
     while (true) {
       System.out.println("");
@@ -58,7 +58,7 @@ public class QueueMenu{
     }
   }
 
-  static void CircularQueue(){
+  static void CircularQueueOperations(){
     running:
     while (true) {
       System.out.println("");
@@ -101,11 +101,11 @@ public class QueueMenu{
     }
   }
 
-  static void QueueWithLinkedlist(){
+  static void QueueWithLinkedlistOperations(){
     System.out.println("");
   }
 
-  public static void QueueOperations(){
+  public static void QueueTypes(){
     running:
     while (true) {
       System.out.println("");
@@ -120,11 +120,11 @@ public class QueueMenu{
 
       switch (Option)
       {
-       case "1":LinearQueue();
+       case "1":LinearQueueOperations();
            break;
-       case "2":CircularQueue();
+       case "2":CircularQueueOperations();
            break;
-       case "3":QueueWithLinkedlist();
+       case "3":QueueWithLinkedlistOperations();
            break;
        case "4":System.out.println("your are going Back");;
            break running;
