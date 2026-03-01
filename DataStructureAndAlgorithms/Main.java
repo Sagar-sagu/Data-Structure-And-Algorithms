@@ -28,7 +28,7 @@ public class Main{
           {
              case "1":AlgorithmsMenu.AlgorithmsOperations();
                  break;
-             case "2":ArraysMenu.ArraysOperations();
+             case "2":ArraysMenu.ArrayImplementTypes();
                  break;
              case "3":QueueMenu.QueueTypes();
                  break;

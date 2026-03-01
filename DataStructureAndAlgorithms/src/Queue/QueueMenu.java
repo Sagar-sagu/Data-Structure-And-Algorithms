@@ -19,7 +19,7 @@ public class QueueMenu{
       System.out.println("7.Search (check wheather Searching element is there in Queue or not)");
       System.out.println("8.Size (it returns the number of elements in the queue)");
       System.out.println("9.Capacity (it returns Capacity of Queue)");
-      System.out.println("10.Remaing Slots (it returns Remaing index of Capacity)");
+      System.out.println("10.Remaining Slots (it returns Remaing index of Capacity)");
       System.out.println("11.Goe's Back");
       System.out.println("12.Exit");
 
