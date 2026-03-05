@@ -23,13 +23,13 @@ public class Array{
         System.out.println("Enter Data Size");
         IntegerLength = scan.nextInt();
         IntegerArray = new int[IntegerLength];
-        System.out.println("Succesfully Integer Type Stack is Created");
+        System.out.println("Succesfully Integer Type Array is Created");
       }
       else if (usrGaveType == 2) {
         System.out.println("Enter Data Size");
         StringLength = scan.nextInt();
         StringArray = new String[StringLength];
-        System.out.println("Succesfully String Type Stack is Created");
+        System.out.println("Succesfully String Type Array is Created");
       }
     } catch(Exception e) {
         System.out.println("Enter Integer value");
@@ -47,7 +47,7 @@ public class Array{
             Integer++;
           }
           if (Integer < IntegerArray.length) {
-              IntegerArray[0] = IntegerArrayElements;
+              IntegerArray[Integer] = IntegerArrayElements;
               Integer++;
           }
           else {
@@ -61,7 +61,7 @@ public class Array{
             String++;
           }
           if (String < StringArray.length) {
-              StringArray[0] = StringArrayElements;
+              StringArray[String] = StringArrayElements;
               String++;
           }
           else {
