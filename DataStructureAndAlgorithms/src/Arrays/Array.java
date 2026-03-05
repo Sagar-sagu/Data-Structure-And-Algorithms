@@ -9,8 +9,8 @@ public class Array{
   static int usrGaveType;
   static int[] IntegerArray;
   static String[] StringArray;
-  static int Integer = 0;
-  static int String = 0;
+  static int Integer = -1;
+  static int String = -1;
 
   public static void CreateArray(){
     try {
@@ -43,6 +43,9 @@ public class Array{
         if (usrGaveType == 1) {
           System.out.println("Enter Integer element");
           int IntegerArrayElements = scan.nextInt();
+          if (Integer == -1) {
+            Integer++;
+          }
           if (Integer < IntegerArray.length) {
               IntegerArray[0] = IntegerArrayElements;
               Integer++;
@@ -53,7 +56,10 @@ public class Array{
         }
         else if (usrGaveType == 2) {
           System.out.println("Enter String element");
-          String StringStackElements = scan.nextLine();
+          String StringArrayElements = scan.nextLine();
+          if (String == -1) {
+            String++;
+          }
           if (String < StringArray.length) {
               StringArray[0] = StringArrayElements;
               String++;
@@ -77,21 +83,41 @@ public class Array{
       System.out.println("");
       if ((IntegerLength != 0) || (StringLength != 0)) {
         if (usrGaveType == 1) {
-          if (IntegerTop == -1) {
+          if (Integer == -1) {
               System.out.println("Array is Empty");
           }
           else {
-              System.out.println("Poping element is " + IntegerStack[IntegerTop]);
-              IntegerTop--;
+            System.out.println("Enter Index of Delete Element");
+            int DeleteIndex = scan.nextInt();
+            int DeleteEle = IntegerArray[DeleteIndex];
+            if (DeleteIndex == 0) {
+              IntegerArray[0] = 0;
+              Integer = -1;
+              return;
+            }
+            for (int i=IntegerLength-1;i>=1 ;i++ ) {
+              IntegerArray[i] = IntegerArray[i-1];
+            }
+            System.out.println("Deleteing Element is " + DeleteEle);
           }
         }
         else if (usrGaveType == 2) {
-          if (StringTop == -1) {
+          if (String == -1) {
               System.out.println("Array is Empty");
           }
           else {
-              System.out.println("Poping element is " + StringStack[StringTop]);
-              StringTop--;
+            System.out.println("Enter Index of Delete Element");
+            int DeleteIndex = scan.nextInt();
+            String DeleteEle = StringArray[DeleteIndex];
+            if (DeleteIndex == 0) {
+              StringArray[0] = null;
+              String = -1;
+              return;
+            }
+            for (int i=StringLength-1;i>=1 ;i++ ) {
+              StringArray[i] = StringArray[i-1];
+            }
+            System.out.println("Deleteing Element is " + DeleteEle);
           }
         }
       }
@@ -109,23 +135,23 @@ public class Array{
       System.out.println("");
       if ((IntegerLength != 0) || (StringLength != 0)) {
         if (usrGaveType == 1) {
-          if (IntegerTop == -1) {
+          if (Integer == -1) {
             System.out.println("Array is Empty");
           }
           else {
             System.out.println("Enter Index of Reading Element");
             int ReadEle = scan.nextInt();
-            System.out.println(IntegerArray[ReadEle]);
+            System.out.println("Reading Element is " + IntegerArray[ReadEle]);
           }
         }
         else if (usrGaveType == 2) {
-          if (StringTop == -1) {
+          if (String == -1) {
             System.out.println("Array is Empty");
           }
           else {
             System.out.println("Enter Index of Reading Element");
-            String ReadEle = scan.nextInt();
-            System.out.println(StringArray[ReadEle]);
+            int ReadEle = scan.nextInt();
+            System.out.println("Reading Element is " + StringArray[ReadEle]);
           }
         }
       }
@@ -143,7 +169,7 @@ public class Array{
       System.out.println("");
       if ((IntegerLength != 0) || (StringLength != 0)) {
         if (usrGaveType == 1) {
-          if (IntegerTop == -1) {
+          if (Integer == -1) {
             System.out.println("Array is Empty");
           }
           else {
@@ -155,15 +181,15 @@ public class Array{
           }
         }
         else if (usrGaveType == 2) {
-          if (StringTop == -1) {
+          if (String == -1) {
             System.out.println("Array is Empty");
           }
           else {
             System.out.println("Enter Update Element");
-            String UpdateEle = scan.nextInt();
+            String UpdateEle = scan.nextLine();
             System.out.println("Enter Index of Update Element");
-            String UpdateIndex = scan.nextInt();
-            System.out.println(IntegerArray[UpdateIndex] = UpdateEle);
+            int UpdateIndex = scan.nextInt();
+            System.out.println(StringArray[UpdateIndex] = UpdateEle);
           }
         }
       }
@@ -181,7 +207,7 @@ public class Array{
       System.out.println("");
       if ((IntegerLength != 0) || (StringLength != 0)) {
         if (usrGaveType == 1) {
-          if (IntegerTop == -1) {
+          if (Integer == -1) {
             System.out.println("Array is Empty");
           }
           else {
@@ -193,7 +219,7 @@ public class Array{
           }
         }
         else if (usrGaveType == 2) {
-          if (StringTop == -1) {
+          if (String == -1) {
             System.out.println("Array is Empty");
           }
           else {
@@ -219,7 +245,7 @@ public class Array{
       System.out.println("");
       if ((IntegerLength != 0) || (StringLength != 0)) {
         if (usrGaveType == 1) {
-          if (IntegerTop == -1) {
+          if (Integer == -1) {
             System.out.println("Array is Empty");
           }
           else {
@@ -231,14 +257,14 @@ public class Array{
                 System.out.println("is There? True");
                 break;
               }
-              else if (Integerarray.length-1 == i) {
+              else if (IntegerArray.length-1 == i) {
                 System.out.println("is There? False");
               }
             }
           }
         }
         else if (usrGaveType == 2) {
-          if (StringTop == -1) {
+          if (String == -1) {
             System.out.println("Array is Empty");
           }
           else {
@@ -246,7 +272,7 @@ public class Array{
             System.out.println("Enter Search Element");
             int searchEle = scan.nextInt();
             for (int i=0;i<=StringArray.length-1;i++ ) {
-              if (StringArray[i] == searchEle) {
+              if (StringArray[i].equals(searchEle)) {
                 System.out.println("is There? True");
                 break;
               }
@@ -288,6 +314,6 @@ public class Array{
   }
 
   public static void RemainingIndexes(){
-
+    System.out.println("Comming soon");
   }
 }
