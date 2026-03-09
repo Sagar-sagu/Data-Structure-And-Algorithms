@@ -84,26 +84,33 @@ public class Array{
       if ((IntegerLength != 0) || (StringLength != 0)) {
         if (usrGaveType == 1) {
           if (Integer == -1) {
-              System.out.println("Array is Empty");
+            System.out.println("Array is Empty");
           }
           else {
             System.out.println("Enter Index of Delete Element");
             int DeleteIndex = scan.nextInt();
             int DeleteEle = IntegerArray[DeleteIndex];
-            if (DeleteIndex == 0) {
+            if (DeleteIndex == 0 && IntegerArray[1] == 0) {
               IntegerArray[0] = 0;
               Integer = -1;
               return;
             }
-            for (int i=IntegerLength-1;i>=1 ;i++ ) {
-              IntegerArray[i] = IntegerArray[i-1];
+            for (int i=Integer-1;i>=0 ;i-- ) {
+            	if(i==0) {break;}
+              IntegerArray[i-1] = IntegerArray[i];
+            }
+            if (IntegerArray[Integer] == 0 && IntegerArray[Integer] != IntegerLength) {
+              IntegerArray[Integer-1] = 0;
             }
             System.out.println("Deleteing Element is " + DeleteEle);
+            if (DeleteIndex <= Integer-1) {
+              Integer--;
+            }
           }
         }
         else if (usrGaveType == 2) {
           if (String == -1) {
-              System.out.println("Array is Empty");
+            System.out.println("Array is Empty");
           }
           else {
             System.out.println("Enter Index of Delete Element");
@@ -114,19 +121,22 @@ public class Array{
               String = -1;
               return;
             }
-            for (int i=StringLength-1;i>=1 ;i++ ) {
+            for (int i=String;i>=1 ;i++ ) {
               StringArray[i] = StringArray[i-1];
             }
             System.out.println("Deleteing Element is " + DeleteEle);
+            if (DeleteIndex <= IntegerLength-1) {
+              Integer--;
+            }
           }
         }
       }
       else {
-          System.out.println("First You Create Array");
+        System.out.println("First You Create Array");
       }
     }
     catch (Exception e) {
-        System.out.println("Exception: " + e);
+      System.out.println("Exception: " + e);
     }
   }
 
