@@ -270,7 +270,62 @@ public class SinglyLinkedList{
   }
 
   public  void Search(){
-    System.out.println("comming soon");
+    try {
+      System.out.println("");
+      if ((usrGaveType != 0) || (usrGaveType != 0)) {
+        if (usrGaveType == 1) {
+          if (IntegerHead == null){
+            System.out.println("Not Yet Insert Any Node");
+            return;
+          }
+          NodeStructure tempVar = IntegerHead;
+          System.out.println("Enter Searching Node data:");
+          int searchElement = scan.nextInt();
+          int count = 1;
+          while (tempVar != null){
+            if (tempVar.IntegerData == searchElement) {
+              System.out.println("is There? True");
+              System.out.println("assuming  stored elements are in  assending order");
+              System.out.println("index number of " + searchElement + " is " + count );
+              break;
+            }
+            count++;
+            tempVar = tempVar.nextInteger;
+          }
+          if (tempVar == null) {
+            System.out.println("is There? False");
+          }
+        }
+        else if (usrGaveType == 2) {
+          if (StringHead == null){
+            System.out.println("Linked List is Empty? True");
+            return;
+          }
+          NodeStructure tempVar = StringHead;
+          System.out.println("Enter Searching Node data:");
+          String searchElement = scan.nextLine();
+          int count = 1;
+          while (tempVar != null){
+            if (tempVar.StringData == searchElement) {
+              System.out.println("is There? True");
+              System.out.println("assume store elements assending order");
+              System.out.println("index number of " + searchElement + " is " + count );
+              break;
+            }
+            count++;
+            tempVar = tempVar.nextString;
+          }
+          if (tempVar == null) {
+            System.out.println("is There? False");
+          }
+        }
+      }
+      else {
+        System.out.println("First You Create Linked List");
+      }
+  	}catch (Exception e) {
+  		System.out.println("Exception: " + e);
+  	}
   }
 
   public  void Size(){
@@ -282,27 +337,30 @@ public class SinglyLinkedList{
             System.out.println("Not Yet Insert Any Node");
             return;
           }
+          int count = 0;
           NodeStructure tempVar = IntegerHead;
-          System.out.println("Linked List elements are:");
           while (tempVar != null){
-            System.out.print("|" + tempVar.IntegerData + "|AONN|" + "->");
+            count++;
             tempVar = tempVar.nextInteger;
           }
-          System.out.println("null");
+          System.out.println("Size of SinglyLinkedList elements: " + count);
+        }
+        else if (usrGaveType == 2) {
+          if (StringHead == null){
+            System.out.println("Linked List is Empty? True");
+            return;
+          }
+          int count = 0;
+          NodeStructure tempVar = StringHead;
+          while (tempVar != null){
+            count++;
+            tempVar = tempVar.nextString;
+          }
+          System.out.println("Size of SinglyLinkedList elements: " + count);
         }
       }
-      else if (usrGaveType == 2) {
-        if (StringHead == null){
-          System.out.println("Linked List is Empty? True");
-          return;
-        }
-        NodeStructure tempVar = StringHead;
-        System.out.println("Linked List elements are:");
-        while (tempVar != null){
-          System.out.print("|" + tempVar.StringData + "|AONN|" + "->");
-          tempVar = tempVar.nextString;
-        }
-        System.out.println("null");
+      else {
+        System.out.println("First You Create Linked List");
       }
   	}catch (Exception e) {
   		System.out.println("Exception: " + e);
