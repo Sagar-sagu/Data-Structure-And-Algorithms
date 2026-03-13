@@ -1,7 +1,7 @@
 package src.Stack;
 
 import java.util.Scanner;
-import src.Stack.StackWithArray.Stack;
+import src.Stack.StackWithArray;
 
 public class StackMenu
 {
@@ -28,25 +28,25 @@ public class StackMenu
 
       switch (Option)
       {
-       case "1":Stack.CreateStack();
+       case "1":StackWithArray.CreateStack();
            break;
-       case "2":Stack.isEmpty();
+       case "2":StackWithArray.isEmpty();
            break;
-       case "3":Stack.Push();
+       case "3":StackWithArray.Push();
            break;
-       case "4":Stack.Pop();
+       case "4":StackWithArray.Pop();
            break;
-       case "5":Stack.Peek();
+       case "5":StackWithArray.Peek();
            break;
-       case "6":Stack.ViewElements();
+       case "6":StackWithArray.ViewElements();
            break;
-       case "7":Stack.Search();
+       case "7":StackWithArray.Search();
            break;
-       case "8":Stack.Size();
+       case "8":StackWithArray.Size();
            break;
-       case "9":Stack.Capacity();
+       case "9":StackWithArray.Capacity();
            break;
-       case "10":Stack.RemainSlots();
+       case "10":StackWithArray.RemainSlots();
            break;
        case "11":System.out.println("your are going Back");;
            break running;

@@ -1,8 +1,8 @@
-package src.Stack.StackWithArray;
+package src.Stack;
 
 import java.util.Scanner;
 
-public class Stack{
+public class StackWithArray{
   static Scanner scan = new Scanner(System.in);
   static int IntegerLength;
   static int StringLength;

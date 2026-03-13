@@ -1,26 +1,22 @@
-package src.LinkedList.singlyLinkedList;
+package src.LinkedList;
 
 import java.util.Scanner;
 
-public class SinglyLinkedList
-{
+public class SinglyLinkedList{
   //inner class of outer class
-  public static class NodeStructure
-  {
+  public static class NodeStructure{
     int IntegerData;
     NodeStructure nextInteger;
     String  StringData;
     NodeStructure nextString;
 
     //inner class constructor
-    public NodeStructure(int IntegerData)
-    {
+    public NodeStructure(int IntegerData){
       this.IntegerData = IntegerData;
       nextInteger = null;
     }
 
-    public NodeStructure(String StringData)
-    {
+    public NodeStructure(String StringData){
       this.StringData = StringData;
       nextString = null;
     }
@@ -32,14 +28,6 @@ public class SinglyLinkedList
   public static NodeStructure IntegerHead=null;
   public static NodeStructure StringHead=null;
   static NodeStructure tempVar;
-
-  //outer class constructor
-//  public SinglyLinkedList()
-//  {
-//    IntegerHead = null;
-//    StringHead = null;
-//  }
-
   //Linked List operations Methods
   public void CreateLinkedList(){
     try {
@@ -125,38 +113,34 @@ public class SinglyLinkedList
       System.out.println("");
       if ((usrGaveType != 0) || (usrGaveType != 0)) {
         if (usrGaveType == 1) {
-        	 if (IntegerHead == null)
-     	    {
-     	      System.out.println("Not Yet Insert Any Node");
-     	      return;
+        	 if (IntegerHead == null){
+     	     InsertAtBeginning();
+           return;
      	    }
      	    tempVar = IntegerHead;
-     	    while (tempVar != null)
-     	    {
+     	    while (tempVar.nextInteger != null){
      	    	tempVar = tempVar.nextInteger;
-     	    	  
      	    }
      	   System.out.println("Enter Integer Node Data");
            int IntegerNodeData = scan.nextInt();
            newNode = new NodeStructure(IntegerNodeData);
-           newNode.nextInteger = tempVar;
-           tempVar = newNode;
-           System.out.println("Inserted Node Succesfully"); 
+           tempVar.nextInteger = newNode;
+           System.out.println("Inserted Node Succesfully");
         }
         else if (usrGaveType == 2) {
-        	 if (IntegerHead == null)
-     	    {
-     	      System.out.println("Not Yet Insert Any Node");
-     	      return;
+        	 if (StringHead == null){
+     	      InsertAtBeginning();
+            return;
      	    }
-     	    NodeStructure tempVar = IntegerHead;
-     	    System.out.println("Linked List elements are:");
-     	    while (tempVar != null)
-     	    {
-     	      System.out.print("|" + tempVar.IntegerData + "|AONN|" + "->");
-     	      tempVar = tempVar.nextInteger;
+          tempVar = StringHead;
+     	    while (tempVar.nextString != null){
+     	    	tempVar = tempVar.nextString;
      	    }
-     	    System.out.println("null");
+     	   System.out.println("Enter String Node Data");
+           int StringNodeData = scan.nextInt();
+           newNode = new NodeStructure(StringNodeData);
+           tempVar.nextString = newNode;
+           System.out.println("Inserted Node Succesfully");
         }
       }
       else {
@@ -177,7 +161,7 @@ public class SinglyLinkedList
             System.out.println("Linked List is Empty? True");
             return;
           }
-          IntegerHead = newNode.nextInteger;
+          IntegerHead = IntegerHead.nextInteger;
           System.out.println("Deleted Node Succesfully");
         }
         else if (usrGaveType == 2) {
@@ -185,7 +169,7 @@ public class SinglyLinkedList
             System.out.println("Linked List is Empty? True");
             return;
           }
-          IntegerHead = newNode.nextInteger;
+          StringHead = StringHead.nextString;
           System.out.println("Deleted Node Succesfully");
         }
       }
@@ -198,27 +182,40 @@ public class SinglyLinkedList
     }
   }
 
-  public  void DisplayNodes()
-  {
-	try {
-	    if (IntegerHead == null)
-	    {
-	      System.out.println("Not Yet Insert Any Node");
-	      return;
-	    }
-	
-	    NodeStructure tempVar = IntegerHead;
-	    System.out.println("Linked List elements are:");
-	    while (tempVar != null)
-	    {
-	      System.out.print("|" + tempVar.IntegerData + "|AONN|" + "->");
-	      tempVar = tempVar.nextInteger;
-	    }
-	    System.out.println("null");
-	}
-	catch (Exception e) {
-		System.out.println("Exception: " + e);
-	}
+  public  void DisplayNodes(){
+  	try {
+      System.out.println("");
+      if ((usrGaveType != 0) || (usrGaveType != 0)) {
+        if (usrGaveType == 1) {
+          if (IntegerHead == null){
+            System.out.println("Not Yet Insert Any Node");
+            return;
+          }
+          NodeStructure tempVar = IntegerHead;
+          System.out.println("Linked List elements are:");
+          while (tempVar != null){
+            System.out.print("|" + tempVar.IntegerData + "|AONN|" + "->");
+            tempVar = tempVar.nextInteger;
+          }
+          System.out.println("null");
+        }
+      }
+      else if (usrGaveType == 2) {
+        if (StringHead == null){
+          System.out.println("Linked List is Empty? True");
+          return;
+        }
+        NodeStructure tempVar = StringHead;
+        System.out.println("Linked List elements are:");
+        while (tempVar != null){
+          System.out.print("|" + tempVar.StringData + "|AONN|" + "->");
+          tempVar = tempVar.nextString;
+        }
+        System.out.println("null");
+      }
+  	}catch (Exception e) {
+  		System.out.println("Exception: " + e);
+  	}
   }
 
   public  void InsertAtGivenPosition(){
@@ -226,7 +223,46 @@ public class SinglyLinkedList
   }
 
   public  void DeleteAtEnd(){
-    System.out.println("comming soon");
+    try {
+      System.out.println("");
+      if ((usrGaveType != 0) || (usrGaveType != 0)) {
+        if (usrGaveType == 1) {
+        	if (IntegerHead == null){
+            System.out.println("Not Yet Insert Any Node");
+            return;
+     	    }
+          if (IntegerHead.nextInteger == null) {
+            IntegerHead = null;
+            return;
+          }
+     	    tempVar = IntegerHead;
+     	    while (tempVar.nextInteger.nextInteger != null){
+     	    	tempVar = tempVar.nextInteger;
+     	    }
+          tempVar.nextInteger = null;
+        }
+        else if (usrGaveType == 2) {
+        	 if (StringHead == null){
+             System.out.println("Not Yet Insert Any Node");
+             return;
+     	    }
+          if (StringHead.nextString == null) {
+            StringHead = null;
+            return;
+          }
+          tempVar = StringHead;
+     	    while (tempVar.nextString != null){
+     	    	tempVar = tempVar.nextString;
+     	    }
+        }
+      }
+      else {
+        System.out.println("First You Create Linked List");
+      }
+    }
+    catch (Exception e) {
+      System.out.println("Exception" + e);
+    }
   }
 
   public  void DeleteAtGivenPosition(){
@@ -238,6 +274,38 @@ public class SinglyLinkedList
   }
 
   public  void Size(){
-    System.out.println("comming soon");
+    try {
+      System.out.println("");
+      if ((usrGaveType != 0) || (usrGaveType != 0)) {
+        if (usrGaveType == 1) {
+          if (IntegerHead == null){
+            System.out.println("Not Yet Insert Any Node");
+            return;
+          }
+          NodeStructure tempVar = IntegerHead;
+          System.out.println("Linked List elements are:");
+          while (tempVar != null){
+            System.out.print("|" + tempVar.IntegerData + "|AONN|" + "->");
+            tempVar = tempVar.nextInteger;
+          }
+          System.out.println("null");
+        }
+      }
+      else if (usrGaveType == 2) {
+        if (StringHead == null){
+          System.out.println("Linked List is Empty? True");
+          return;
+        }
+        NodeStructure tempVar = StringHead;
+        System.out.println("Linked List elements are:");
+        while (tempVar != null){
+          System.out.print("|" + tempVar.StringData + "|AONN|" + "->");
+          tempVar = tempVar.nextString;
+        }
+        System.out.println("null");
+      }
+  	}catch (Exception e) {
+  		System.out.println("Exception: " + e);
+  	}
   }
 }

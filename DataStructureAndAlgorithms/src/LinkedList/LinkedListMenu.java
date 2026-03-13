@@ -1,7 +1,7 @@
 
 package src.LinkedList;
 
-import src.LinkedList.singlyLinkedList.SinglyLinkedList;
+import src.LinkedList.SinglyLinkedList;
 import java.util.Scanner;
 
 public class LinkedListMenu
