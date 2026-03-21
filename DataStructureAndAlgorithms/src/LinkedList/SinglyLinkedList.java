@@ -158,7 +158,7 @@ public class SinglyLinkedList{
       if ((usrGaveType != 0) || (usrGaveType != 0)) {
         if (usrGaveType == 1) {
           if (IntegerHead == null){
-            System.out.println("Linked List is Empty? True");
+            System.out.println("Linked List is Empty");
             return;
           }
           IntegerHead = IntegerHead.nextInteger;
@@ -166,7 +166,7 @@ public class SinglyLinkedList{
         }
         else if (usrGaveType == 2) {
           if (StringHead == null){
-            System.out.println("Linked List is Empty? True");
+            System.out.println("Linked List is Empty");
             return;
           }
           StringHead = StringHead.nextString;
@@ -219,7 +219,58 @@ public class SinglyLinkedList{
   }
 
   public  void InsertAtGivenPosition(){
-    System.out.println("comming soon");
+    try {
+      System.out.println("");
+      if ((usrGaveType != 0) || (usrGaveType != 0)) {
+        if (usrGaveType == 1) {
+          System.out.println("assuming you stored elements in (123) asssending order");
+          System.out.println("before insertion you checkout Display Nodes for clarification ");
+          System.out.println("Enter Position");
+          int IntegerNodePosition = scan.nextInt();
+          // System.out.println("Enter Integer Node Data");
+          // int IntegerNodeData = scan.nextInt();
+          if (IntegerHead == null || IntegerNodePosition == 1){
+            InsertAtBeginning();
+            return;
+          }
+          if (IntegerHead.nextInteger == null || IntegerNodePosition == 1) {
+            InsertAtBeginning();
+            return;
+          }
+
+          int count = 1;
+          NodeStructure tempVar = IntegerHead;
+     	    while (tempVar.nextInteger.nextInteger != null){
+            if (count == IntegerNodePosition) {
+              System.out.println("Enter Integer Node Data");
+              int IntegerNodeData = scan.nextInt();
+              newNode = new NodeStructure(IntegerNodeData);
+              NodeStructure middleValue = tempVar.nextInteger;
+              tempVar.nextInteger = newNode;
+              newNode.nextInteger = middleValue;
+              System.out.println("Inserted Node Succesfully");
+              break;
+            }
+            count++;
+     	    	tempVar = tempVar.nextInteger;
+     	    }
+        }
+        else if (usrGaveType == 2) {
+          System.out.println("Enter String Node Data");
+          String StringNodeData = scan.nextLine();
+          NodeStructure newNode = new NodeStructure(StringNodeData);
+          newNode.nextString = StringHead;
+          StringHead = newNode;
+          System.out.println("Inserted Node Succesfully");
+        }
+      }
+      else {
+        System.out.println("First You Create Linked List");
+      }
+    }
+    catch (Exception e) {
+      System.out.println("Exception" + e);
+    }
   }
 
   public  void DeleteAtEnd(){

@@ -16,10 +16,10 @@ public class LinkedListMenu
       System.out.println("2.Linked List is Empty (check wheather  Linked List empty or not)");
       System.out.println("3.Insert At Beginning (Add Node)");
       System.out.println("4.Insert At End (Add Node)");
-      System.out.println("5.Customization (Add Node At Given Position. Except Beginning And End )");
+      System.out.println("5.Customization (Add Node At Given Position)");
       System.out.println("6.Delete At Beginning (Remove Node)");
       System.out.println("7.Delete At End (Remove Node )");
-      System.out.println("8.Customization (Remove Node At Given Position. Except Beginning And End )");
+      System.out.println("8.Customization (Remove Node At Given Position)");
       System.out.println("9.View (Show All Node in Linked List)");
       System.out.println("10.Search (check wheather Searching Node is there in Linked List or not)");
       System.out.println("11.Size (it returns the number of Node in the Linked List)");
