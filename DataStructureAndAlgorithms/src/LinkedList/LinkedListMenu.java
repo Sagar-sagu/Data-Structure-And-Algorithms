@@ -4,8 +4,7 @@ package src.LinkedList;
 import src.LinkedList.SinglyLinkedList;
 import java.util.Scanner;
 
-public class LinkedListMenu
-{
+public class LinkedListMenu{
   static Scanner scan = new Scanner(System.in);
 
   static void SinglyLinkedListOperations(){
@@ -31,8 +30,7 @@ public class LinkedListMenu
       //Create object of SinglyLinkedList Class
       SinglyLinkedList LinkedList = new SinglyLinkedList();
 
-      switch (Option)
-      {
+      switch (Option){
        case "1":LinkedList.CreateLinkedList();
            break;
        case "2":LinkedList.LinkedListIsEmpty();
@@ -64,11 +62,9 @@ public class LinkedListMenu
       }
     }
   }
-  public static void LinkedListTypes()
-  {
+  public static void LinkedListTypes(){
     running:
-    while (true)
-    {
+    while (true){
       System.out.println("");
       System.out.println("1.SinglyLinkedList ( it can Traverse only Forword )");
       System.out.println("2.DoublyLinkedList ( it can Traverse Both Forword and Backword )");
@@ -79,8 +75,7 @@ public class LinkedListMenu
       System.out.println("Enter your Option(1,2,3,4,5) : ");
       int Option = scan.nextInt();
 
-      switch (Option)
-       {
+      switch (Option){
          case 1:SinglyLinkedListOperations();
                 //System.out.println("comming soon");
              break;

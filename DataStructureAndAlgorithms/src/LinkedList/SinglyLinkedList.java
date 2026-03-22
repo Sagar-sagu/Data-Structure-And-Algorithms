@@ -393,7 +393,7 @@ public class SinglyLinkedList{
 
           int count = 1;
           NodeStructure tempVar = IntegerHead;
-     	    while (count < IntegerNodePosition){
+     	    while (count < IntegerNodePosition-1){
             if (tempVar == null) {
               break;
             }
@@ -430,7 +430,7 @@ public class SinglyLinkedList{
 
           int count = 1;
           NodeStructure tempVar = StringHead;
-     	    while (count < StringNodePosition){
+     	    while (count < StringNodePosition-1){
             if (tempVar == null) {
               break;
             }
