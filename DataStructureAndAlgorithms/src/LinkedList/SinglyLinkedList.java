@@ -193,6 +193,7 @@ public class SinglyLinkedList{
           }
           NodeStructure tempVar = IntegerHead;
           System.out.println("Linked List elements are:");
+          System.out.println("Note: AONN --> Address Of Next Node");
           while (tempVar != null){
             System.out.print("|" + tempVar.IntegerData + "|AONN|" + "->");
             tempVar = tempVar.nextInteger;
@@ -207,6 +208,7 @@ public class SinglyLinkedList{
         }
         NodeStructure tempVar = StringHead;
         System.out.println("Linked List elements are:");
+        System.out.println("Note: AONN --> Address Of Next Node");
         while (tempVar != null){
           System.out.print("|" + tempVar.StringData + "|AONN|" + "->");
           tempVar = tempVar.nextString;
@@ -227,8 +229,11 @@ public class SinglyLinkedList{
           System.out.println("before insertion you checkout Display Nodes for clarification ");
           System.out.println("Enter Position");
           int IntegerNodePosition = scan.nextInt();
-          // System.out.println("Enter Integer Node Data");
-          // int IntegerNodeData = scan.nextInt();
+
+          if (IntegerNodePosition <= 0 ) {
+            System.out.println("Invalid Position");
+            return;
+          }
           if (IntegerHead == null || IntegerNodePosition == 1){
             InsertAtBeginning();
             return;
@@ -237,30 +242,77 @@ public class SinglyLinkedList{
             InsertAtBeginning();
             return;
           }
-
           int count = 1;
           NodeStructure tempVar = IntegerHead;
-     	    while (tempVar.nextInteger.nextInteger != null){
-            if (count == IntegerNodePosition) {
-              System.out.println("Enter Integer Node Data");
-              int IntegerNodeData = scan.nextInt();
-              newNode = new NodeStructure(IntegerNodeData);
-              NodeStructure middleValue = tempVar.nextInteger;
-              tempVar.nextInteger = newNode;
-              newNode.nextInteger = middleValue;
-              System.out.println("Inserted Node Succesfully");
+     	    while (count < IntegerNodePosition-1){
+            if (tempVar == null) {
               break;
             }
             count++;
-     	    	tempVar = tempVar.nextInteger;
-     	    }
+            tempVar = tempVar.nextInteger;
+          }
+       	  if (tempVar == null) {
+            System.out.println("You enterd Position out of  Linked List size");
+            System.out.println("");
+            System.out.println("Note: But we Append(as last node) To the Linked List ");
+            System.out.println("Say YES OR NO (1-2)");
+            int AppendChoice = scan.nextInt();
+            if (AppendChoice == 2) {
+              return;
+            }
+            // System.out.println("Enter Integer Node Data");
+            // int IntegerNodeData = scan.nextInt();
+            // newNode = new NodeStructure(IntegerNodeData);
+
+          }
+
+          System.out.println("Enter Integer Node Data");
+          int IntegerNodeData = scan.nextInt();
+          newNode = new NodeStructure(IntegerNodeData);
+          NodeStructure middleValue = tempVar.nextInteger;
+          tempVar.nextInteger = newNode;
+          newNode.nextInteger = middleValue;
+          System.out.println("Inserted Node Succesfully");
         }
         else if (usrGaveType == 2) {
-          System.out.println("Enter String Node Data");
+          System.out.println("assuming you stored elements in (123) asssending order");
+          System.out.println("before insertion you checkout Display Nodes for clarification ");
+          System.out.println("Enter Position");
+          int StringNodePosition = scan.nextInt();
+
+          if (StringNodePosition <= 0 ) {
+            System.out.println("Invalid Position");
+            return;
+          }
+          if (StringHead == null || StringNodePosition == 1){
+            InsertAtBeginning();
+            return;
+          }
+          if (StringHead.nextInteger == null || StringNodePosition == 1) {
+            InsertAtBeginning();
+            return;
+          }
+
+          int count = 1;
+          NodeStructure tempVar = StringHead;
+     	    while (count < StringNodePosition-1){
+            if (tempVar == null) {
+              break;
+            }
+            count++;
+            tempVar = tempVar.nextString;
+          }
+
+     	   if (tempVar == null) {
+               System.out.println("Invalid Position");
+               return;
+          }
+          System.out.println("Enter Integer Node Data");
           String StringNodeData = scan.nextLine();
-          NodeStructure newNode = new NodeStructure(StringNodeData);
-          newNode.nextString = StringHead;
-          StringHead = newNode;
+          newNode = new NodeStructure(StringNodeData);
+          NodeStructure middleValue = tempVar.nextString;
+          tempVar.nextString = newNode;
+          newNode.nextString = middleValue;
           System.out.println("Inserted Node Succesfully");
         }
       }
@@ -317,7 +369,63 @@ public class SinglyLinkedList{
   }
 
   public  void DeleteAtGivenPosition(){
-    System.out.println("comming soon");
+  	try {
+      System.out.println("");
+      if ((usrGaveType != 0) || (usrGaveType != 0)) {
+        if (usrGaveType == 1) {
+          System.out.println("assuming you stored elements in (123) asssending order");
+          System.out.println("before deletion you checkout Display Nodes for clarification ");
+          System.out.println("Enter Position");
+          int IntegerNodePosition = scan.nextInt();
+
+          if (IntegerHead == null) {
+            System.out.println("Not yet insert any node");
+            return;
+          }
+          if (IntegerNodePosition <= 0 ) {
+            System.out.println("Invalid Position");
+            return;
+          }
+          if (IntegerHead.nextInteger == null || IntegerNodePosition == 1) {
+            DeleteAtBeginning();
+            return;
+          }
+
+          int count = 1;
+          NodeStructure tempVar = IntegerHead;
+     	    while (count < IntegerNodePosition-1){
+            if (tempVar == null) {
+              break;
+            }
+            count++;
+            tempVar = tempVar.nextInteger;
+          }
+
+     	    if (tempVar == null) {
+            System.out.println("You enterd Position out of Linked List size");
+            return;
+          }
+          NodeStructure middleValue = tempVar.nextInteger.nextInteger;
+          tempVar.nextInteger = middleValue;
+          System.out.println("deleted  Node Succesfully");
+          }
+          else if (usrGaveType == 2) {
+            System.out.println("Enter String Node Data");
+            String StringNodeData = scan.nextLine();
+            NodeStructure newNode = new NodeStructure(StringNodeData);
+            newNode.nextString = StringHead;
+            StringHead = newNode;
+            System.out.println("Inserted Node Succesfully");
+          }
+        }
+      }
+      else {
+        System.out.println("First You Create Linked List");
+      }
+    }
+    catch (Exception e) {
+      System.out.println("Exception" + e);
+    }
   }
 
   public  void Search(){
