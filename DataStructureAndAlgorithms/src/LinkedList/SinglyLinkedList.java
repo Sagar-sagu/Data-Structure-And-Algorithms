@@ -373,15 +373,15 @@ public class SinglyLinkedList{
       System.out.println("");
       if ((usrGaveType != 0) || (usrGaveType != 0)) {
         if (usrGaveType == 1) {
+          if (IntegerHead == null) {
+            System.out.println("Not yet insert any node");
+            return;
+          }
           System.out.println("assuming you stored elements in (123) asssending order");
           System.out.println("before deletion you checkout Display Nodes for clarification ");
           System.out.println("Enter Position");
           int IntegerNodePosition = scan.nextInt();
 
-          if (IntegerHead == null) {
-            System.out.println("Not yet insert any node");
-            return;
-          }
           if (IntegerNodePosition <= 0 ) {
             System.out.println("Invalid Position");
             return;
@@ -393,7 +393,7 @@ public class SinglyLinkedList{
 
           int count = 1;
           NodeStructure tempVar = IntegerHead;
-     	    while (count < IntegerNodePosition-1){
+     	    while (count < IntegerNodePosition){
             if (tempVar == null) {
               break;
             }
@@ -408,15 +408,43 @@ public class SinglyLinkedList{
           NodeStructure middleValue = tempVar.nextInteger.nextInteger;
           tempVar.nextInteger = middleValue;
           System.out.println("deleted  Node Succesfully");
+        }
+        else if (usrGaveType == 2) {
+          if (StringHead == null) {
+            System.out.println("Not yet insert any node");
+            return;
           }
-          else if (usrGaveType == 2) {
-            System.out.println("Enter String Node Data");
-            String StringNodeData = scan.nextLine();
-            NodeStructure newNode = new NodeStructure(StringNodeData);
-            newNode.nextString = StringHead;
-            StringHead = newNode;
-            System.out.println("Inserted Node Succesfully");
+          System.out.println("assuming you stored elements in (123) asssending order");
+          System.out.println("before deletion you checkout Display Nodes for clarification ");
+          System.out.println("Enter Position");
+          int StringNodePosition = scan.nextInt();
+
+          if (StringNodePosition <= 0 ) {
+            System.out.println("Invalid Position");
+            return;
           }
+          if (StringHead.nextString == null || StringNodePosition == 1) {
+            DeleteAtBeginning();
+            return;
+          }
+
+          int count = 1;
+          NodeStructure tempVar = StringHead;
+     	    while (count < StringNodePosition){
+            if (tempVar == null) {
+              break;
+            }
+            count++;
+            tempVar = tempVar.nextString;
+          }
+
+     	    if (tempVar == null) {
+            System.out.println("You enterd Position out of Linked List size");
+            return;
+          }
+          NodeStructure middleValue = tempVar.nextString.nextString;
+          tempVar.nextString = middleValue;
+          System.out.println("deleted  Node Succesfully");
         }
       }
       else {
