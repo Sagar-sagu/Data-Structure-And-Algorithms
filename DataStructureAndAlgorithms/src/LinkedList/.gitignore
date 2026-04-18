@@ -1,4 +1,9 @@
 LinkedListMenu.class
 SinglyLinkedList.class
-SiglyLinkedList$NodeStructure.class
 /SinglyLinkedList$NodeStructure.class
+DoublyLinkedList.class
+/DoublyLinkedList$NodeStructure.class
+CircularLinkedList.class
+/CircularLinkedList$NodeStructure.class
+DoublyCircularLinkedList.class
+/DoublyCircularLinkedList$NodeStructure.class
